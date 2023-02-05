@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  opa:
+    build: opa
+    volumes:
+    - shared:/shared
+  test:
+    build: test
+    depends_on:
+      opa:
+        condition: service_healthy
+    volumes:
+    - shared:/shared
+volumes:
+  shared: {}

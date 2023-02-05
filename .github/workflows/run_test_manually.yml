@@ -1,0 +1,13 @@
+name: Run the OPA test manually
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run_test_manually:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone
+        uses: actions/checkout@v3
+      - name: Run
+        run: docker compose up --build
